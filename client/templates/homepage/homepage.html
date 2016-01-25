@@ -4,9 +4,14 @@
         <h1>Homepage Youyou Hearthstone</h1>
             </div>
         <div class="row">
-            {{#each cards }}
-                <p>{{ this.name }}</p>
-            {{/each }}
+            <div class="col-md-8">
+                <h2>Click on a row</h2>
+                {{> reactiveTable settings=settingsCardsArray }}
+            </div>
+            <div class="col-md-4">
+                <h2>Your deck</h2>
+                {{> reactiveTable settings=settingsDeckArray }}
+            </div>
         </div>
     </div>
 </template>

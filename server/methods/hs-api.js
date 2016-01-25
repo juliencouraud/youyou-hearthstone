@@ -12,7 +12,7 @@ Meteor.methods({
             "https://omgvamp-hearthstone-v1.p.mashape.com/cards/classes/Shaman?locale=frFR",
             {
                 headers: {
-                    "X-Mashape-Key": "XXX",
+                    "X-Mashape-Key": "WVbj7PzcbmmshPw7vJDh6s9aKdsBp1O4drujsnT5pTEZaiCzsq",
                     //"Accept": "application/json"
                 }
             },
