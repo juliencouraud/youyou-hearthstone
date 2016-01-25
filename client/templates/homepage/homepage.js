@@ -3,10 +3,19 @@
  */
 
 Template.homepageTpl.cards = new ReactiveVar([]);
-Template.homepageTpl.deck = new ReactiveVar([]);
+
+Template.homepageTpl.rendered = function () {
+    Session.set( 'deck' , new Array() );
+    console.log('Rendered: ',Session.get('deck'));
+};
 
 
 Template.homepageTpl.helpers({
+
+    deckArray: function(){
+        return Session.get('deck');
+        console.log('Helpers: ',Session.get('deck'));
+    },
 
     settingsCardsArray: function() {
         Meteor.call('getCards', function(err, data) {
@@ -22,7 +31,6 @@ Template.homepageTpl.helpers({
 
     settingsDeckArray: function() {
         return {
-            collection: Template.homepageTpl.deck.get(),
             rowsPerPage: 30,
             showFilter: false,
             fields: ['name', 'cost', 'rarity']
@@ -33,9 +41,18 @@ Template.homepageTpl.helpers({
 Template.homepageTpl.events({
     'click .reactive-table tbody tr': function (cardObject) {
         var cardObject = this;
+/*
         var cards = Template.homepageTpl.deck.get();
+
         cards.push(cardObject);
         Template.homepageTpl.deck.set(cards);
         console.log(Template.homepageTpl.deck.get());
+*/
+        var deck = Session.get('deck');
+        deck.push(cardObject);
+        console.log(deck);
+        Session.set('deck',deck);
+
+
     }
 });
