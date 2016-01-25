@@ -9,7 +9,7 @@ Meteor.methods({
     getCards: function() {
         var result = new Future();
         HTTP.get(
-            "https://omgvamp-hearthstone-v1.p.mashape.com/cards/classes/Shaman?locale=frFR",
+            "https://omgvamp-hearthstone-v1.p.mashape.com/cards/classes/Priest",
             {
                 headers: {
                     "X-Mashape-Key": "WVbj7PzcbmmshPw7vJDh6s9aKdsBp1O4drujsnT5pTEZaiCzsq",
@@ -17,7 +17,13 @@ Meteor.methods({
                 }
             },
             function(err,cards){
-                result.return(cards.data)
+                var array = new Array();
+                cards.data.forEach(function(card){
+                    if(card.cost){
+                        array.push(card);
+                    }
+                });
+                result.return(array)
             }
         );
         return result.wait();
