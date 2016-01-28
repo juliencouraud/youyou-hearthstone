@@ -6,10 +6,10 @@ Future = Npm.require('fibers/future');
 
 Meteor.methods({
 
-    getCards: function() {
+    getCardsForForm: function(classDeck) {
         var result = new Future();
         HTTP.get(
-            "https://omgvamp-hearthstone-v1.p.mashape.com/cards/classes/Shaman",
+            'https://omgvamp-hearthstone-v1.p.mashape.com/cards/classes/'+classDeck,
             {
                 headers: {
                     "X-Mashape-Key": "XXX",

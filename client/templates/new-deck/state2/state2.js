@@ -7,8 +7,11 @@ Template.newDeckStateTwoTpl.cards = new ReactiveVar([]);
 Session.set( 'deck' , new Array() );
 
 const setNewCardIntoDeckSession = (cardObject) => {
+
     var deck = Session.get('deck');
+
     var isPushCard = false;
+
     deck.forEach(function(card){
         if( card._id == cardObject._id ){
             if ( card.qty < 2 ) {
@@ -25,6 +28,7 @@ const setNewCardIntoDeckSession = (cardObject) => {
             }
         }
     });
+
     if(!isPushCard){
         deck.push({
             _id : cardObject._id,
@@ -35,12 +39,16 @@ const setNewCardIntoDeckSession = (cardObject) => {
             qty: 1,
         });
     }
+
     Session.set('deck',deck);
 };
 
 const removeCardFromDeckSession = (cardObject) => {
+
     var deck = Session.get('deck');
+
     var newDeck = new Array();
+
     deck.forEach(function(card){
        if( card._id == cardObject._id ){
            if( card.qty == 2 ){
@@ -51,26 +59,31 @@ const removeCardFromDeckSession = (cardObject) => {
            newDeck.push(card);
        }
     });
-    Session.set('deck',newDeck);
 
+    Session.set('deck',newDeck);
 };
 
 
 Template.newDeckStateTwoTpl.helpers({
+
+    classDeck: function(){
+      return Session.get('classDeck');
+    },
 
     deckArray: function(){
         return Session.get('deck');
     },
 
     settingsCardsArray: function() {
-        Meteor.call('getCards', function(err, data) {
+        var classDeck = Session.get('classDeck');
+        Meteor.call('getCardsForForm', classDeck, function(err, data) {
             Template.newDeckStateTwoTpl.cards.set(data);
         });
         return {
             collection: Template.newDeckStateTwoTpl.cards.get(),
             rowsPerPage: 10,
             showFilter: true,
-            fields: ['name', 'type', 'cost', 'rarity']
+            fields: ['name','playerClass', 'type', 'cost', 'rarity']
         };
     },
 
@@ -84,6 +97,7 @@ Template.newDeckStateTwoTpl.helpers({
 });
 
 Template.newDeckStateTwoTpl.events({
+
     'click .reactive-table.cards tbody tr': function (cardObject) {
         var cardObject = this;
         setNewCardIntoDeckSession(cardObject);

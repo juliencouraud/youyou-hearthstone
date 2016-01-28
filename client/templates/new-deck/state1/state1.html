@@ -1,4 +1,5 @@
 <template name="newDeckStateOneTpl">
+
     <div class="container">
         <div class="row">
             <h1>New Deck State 1</h1>
@@ -18,21 +19,23 @@
                     <label for="body" class="col-md-4 control-label">Description</label>
                     <br>
                     <div class="col-md-4">
-                        <textarea class="form-control input-md" name="body" id="body" cols="60" rows="10"></textarea>
+                        <textarea class="form-control input-md" name="body" id="body" cols="60" rows="5"></textarea>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="class" class="col-md-4 control-label">Class</label>
+                    <label for="yclass" class="col-md-4 control-label">Class</label>
                     <div class="col-md-4">
-                        <select>
-                            <option></option>
-                            <option></option>
-                            <option></option>
-                            <option></option>
-                            <option></option>
-                        </select>
+                        <div class="col-md-6">
+                            <select id="yclass"  name="yclass" class="form-control input-md selectpicker col-md-12">
+                                {{#each classes}}
+                                    <option value="{{ name }}">{{ name }}</option>
+                                {{/each}}
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <button type="submit" class="btn btn-default pull-right col-md-12">Validate</button>
+                        </div>
                     </div>
-                    <button type="submit" class="btn btn-default pull-right">Validate</button>
                 </div>
             </form>
         </div>

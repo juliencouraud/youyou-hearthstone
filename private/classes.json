@@ -1,0 +1,56 @@
+[
+  {
+    "id":"XXX1",
+    "name":"Druid",
+    "nameFr":"Druide",
+    "iconmini" : "http://www.hearthstone-decks.com/css/images/icones/classes/classe1.jpg"
+  },
+  {
+    "id":"XXX2",
+    "name":"Hunter",
+    "nameFr":"Chasseur",
+    "iconmini" : "http://www.hearthstone-decks.com/css/images/icones/classes/classe2.jpg"
+  },
+  {
+    "id":"XXX3",
+    "name":"Mage",
+    "nameFr":"Mage",
+    "iconmini" : "http://www.hearthstone-decks.com/css/images/icones/classes/classe9.jpg"
+  },
+  {
+    "id":"XXX4",
+    "name":"Paladin",
+    "nameFr":"Paladin",
+    "iconmini" : "http://www.hearthstone-decks.com/css/images/icones/classes/classe4.jpg"
+  },
+  {
+    "id":"XXX5",
+    "name":"Priest",
+    "nameFr":"Prêtre",
+    "iconmini" : "http://www.hearthstone-decks.com/css/images/icones/classes/classe7.jpg"
+  },
+  {
+    "id":"XXX6",
+    "name":"Rogue",
+    "nameFr":"Voleur",
+    "iconmini" : "http://www.hearthstone-decks.com/css/images/icones/classes/classe6.jpg"
+  },
+  {
+    "id":"XXX7",
+    "name":"Shaman",
+    "nameFr":"Chaman",
+    "iconmini" : "http://www.hearthstone-decks.com/css/images/icones/classes/classe5.jpg"
+  },
+  {
+    "id":"XXX8",
+    "name":"Warlock",
+    "nameFr":"Démoniste",
+    "iconmini" : "http://www.hearthstone-decks.com/css/images/icones/classes/classe8.jpg"
+  },
+  {
+    "id":"XXX9",
+    "name":"Warrior",
+    "nameFr":"Guerrier",
+    "iconmini" : "http://www.hearthstone-decks.com/css/images/icones/classes/classe3.jpg"
+  }
+]
