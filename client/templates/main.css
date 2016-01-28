@@ -1,3 +1,7 @@
 body {
     padding-top: 65px;
 }
+.card-selected{
+    width: 229px;
+    height: 348px;
+}

@@ -23,3 +23,5 @@ twbs:bootstrap
 http
 reactive-var
 aslagle:reactive-table
+ian:accounts-ui-bootstrap-3
+accounts-password

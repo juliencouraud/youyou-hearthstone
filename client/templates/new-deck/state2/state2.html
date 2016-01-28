@@ -1,0 +1,20 @@
+<template name="newDeckStateTwoTpl">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5">
+                <h2>Click on a row</h2>
+                {{> reactiveTable class="table table-hover cards" settings=settingsCardsArray }}
+            </div>
+            <div class="col-md-3">
+                <h2>Card Selected</h2>
+                <div>
+                    <img class="card-selected" alt="Chaman Hearthstone" src="http://www.mamytwink.com/wp-content/uploads/2014/09/03/dos-carte-pirate-hearthstone.jpg">
+                </div>
+            </div>
+            <div class="col-md-4">
+                <h2>Your deck</h2>
+                {{> reactiveTable class="table table-hover deck" collection=deckArray settings=settingsDeckArray}}
+            </div>
+        </div>
+    </div>
+</template>
