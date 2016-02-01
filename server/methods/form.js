@@ -5,6 +5,10 @@ Meteor.methods({
 
     getClasses: function () {
         return JSON.parse(Assets.getText("classes.json"));;
+    },
+
+    insertNewDeck: function(deckObject) {
+        Decks.insert(deckObject);
     }
 
 });

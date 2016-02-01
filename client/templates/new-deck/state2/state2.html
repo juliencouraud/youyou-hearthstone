@@ -1,18 +1,33 @@
 <template name="newDeckStateTwoTpl">
     <div class="container">
+        {{#if errors }}
+            <div class="row">
+                <div class="alert alert-danger alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <p><strong>Errors:</strong></p>
+                    {{#each errors}}
+                        <p>- {{ message }}</p>
+                    {{/each}}
+                </div>
+            </div>
+        {{/if}}
         <div class="row">
             <h1>New Deck [ {{ classDeck }} ]</h1>
-            <div class="alert alert-info col-md-12" role="alert">Click on rows to manage your deck. Just pass your cursor over rows to discover cards. To submit your deck click on 'Validate' button.</div>
+            <div class="alert alert-info alert-dismissible col-md-12" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <p>Click on rows to manage your deck. Just pass your cursor over rows to discover cards. To submit your deck, please choose 30 cards and click on 'Validate' button .</p>
+            </div>
             <div class="col-md-5">
                 {{> reactiveTable class="table table-hover cards" settings=settingsCardsArray }}
             </div>
             <div class="col-md-3">
+                <h2>Deck: {{nbCardsInDeck}} / 30</h2>
                 <div>
                     <img class="card-selected" src="http://www.mamytwink.com/wp-content/uploads/2014/09/03/dos-carte-pirate-hearthstone.jpg">
                 </div>
             </div>
             <div class="col-md-4">
-                <button type="submit" class="btn btn-default pull-right col-md-12">Validate</button>
+                <button type="submit" class="btn btn-default pull-right disabled submit-deck col-md-12">Validate</button>
                 {{> reactiveTable class="table table-hover deck" collection=deckArray settings=settingsDeckArray}}
             </div>
         </div>
