@@ -25,3 +25,20 @@ Router.route('/new/state2', function () {
         Router.go('/');
     }
 });
+
+Router.route('/admin/decks',function() {
+
+    var currentUser = Meteor.userId();
+    if(currentUser) {
+        this.render('myDecksTpl');
+    }
+    else {
+        Router.go('/');
+    }
+});
+
+
+Router.route('/feed/:_id', {
+    name: 'feedDeckTpl',
+    data: function () {return Decks.findOne({_id: this.params._id});}
+});

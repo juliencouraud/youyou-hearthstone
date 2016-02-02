@@ -109,6 +109,7 @@ Template.newDeckStateTwoTpl.helpers({
         return {
             rowsPerPage: 30,
             showFilter: false,
+            showNavigation: 'never',
             fields: ['name', 'cost', 'qty']
         };
     },
@@ -150,8 +151,9 @@ Template.newDeckStateTwoTpl.events({
                 titleDeck : Session.get('titleDeck'),
                 bodyDeck : Session.get('bodyDeck'),
                 classDeck : Session.get('classDeck'),
-                cards : Template.newDeckStateTwoTpl.cards.get(),
-                owner: Meteor.userId()
+                cards : Session.get('deck'),
+                owner_id: Meteor.userId(),
+                owner_name: Meteor.user().username
             };
 
             Meteor.call('insertNewDeck', deckObject);

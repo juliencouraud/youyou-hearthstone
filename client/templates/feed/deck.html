@@ -1,0 +1,24 @@
+<template name="feedDeckTpl">
+    <div class="container">
+        <div class="row">
+            <div class="jumbotron">
+                <h1>{{ deckTitle }}</h1>
+                <p>{{ deckBody }}</p>
+                <h3 class="pull-right">By {{ deckOwner }}</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8">
+                {{> reactiveTable class="table table-hover cards" collection=deckCards settings=settingsCardsArray }}
+            </div>
+            <div class="col-md-4">
+                {{# if canDelete }}
+                    <button class="btn btn-default pull-right delete-deck col-md-12">Delete your deck.</button>
+                {{/if }}
+                <div>
+                    <img class="card-selected" src="http://www.mamytwink.com/wp-content/uploads/2014/09/03/dos-carte-pirate-hearthstone.jpg">
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

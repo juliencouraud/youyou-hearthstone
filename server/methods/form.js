@@ -9,6 +9,10 @@ Meteor.methods({
 
     insertNewDeck: function(deckObject) {
         Decks.insert(deckObject);
+    },
+
+    deleteDeck: function(_id) {
+        Decks.remove({_id});
     }
 
 });
